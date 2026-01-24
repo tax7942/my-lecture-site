@@ -1,0 +1,585 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"); /* 부트스트랩 아이콘 */
+
+/* 기본 & 공통 스타일 */
+:root {
+    --main-color: #333;
+    --secondary-color: #555;
+    --link-color: #007bff;
+    --bg-color: #fff;
+    --border-color: #ddd;
+    --light-bg-color: #f9f9f9;
+}
+
+body {
+    font-family: NanumGothic,-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    color: var(--main-color);
+    background-color: var(--bg-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 헤더 & 푸터 */
+.site-header, .site-footer {
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--light-bg-color);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+.site-header h1 a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+.site-footer {
+    border-top: 1px solid var(--border-color);
+    border-bottom: none;
+    margin-top: 2rem;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+}
+
+/* 메인 페이지 (index.html) */
+.main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.course-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+.course-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.course-card a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+.course-card h3 {
+    margin: 0;
+    padding: 1rem 1rem 0.5rem;
+}
+.course-card p {
+    margin: 0;
+    padding: 0 1rem 1rem;
+    font-size: 0.8em;
+    color: var(--secondary-color);
+}
+
+/* 강의 페이지 (lesson.html) */
+.container {
+    display: flex;
+    max-width: 1020px;
+    margin: 0 auto;
+}
+.sidebar {
+    width: 250px;
+    padding: 1rem;
+    border-right: 1px solid var(--border-color);
+    height: calc(100vh - 70px); /* 헤더 높이 제외 */
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+}
+.sidebar nav ul, ol {
+    font-size: 14px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar nav li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: var(--secondary-color);
+}
+.sidebar nav li a:hover {
+    background-color: var(--light-bg-color);
+    color:black;
+    text-decoration: none;
+}
+.sidebar nav li.active a {
+    background-color: var(--light-bg-color);
+    color: black;
+    font-weight: bold;
+}
+
+.lesson-content {
+    flex: 1;
+    padding: 2rem;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 비율 */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+pre {
+    background-color: #2d2d2d;
+    color: #f1f1f1;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+.a-content {
+    font-size: 0.95em;
+}
+
+/* 모바일 반응형 */
+.menu-overlay { display: none; }
+.sidebar-toggle { display: none; }
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        overflow-y: auto; /* 내용이 많으면 스크롤 */
+        /* width: 100%;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color); */
+        display: none; /* 평소엔 숨김 */
+    }
+    .sidebar.active {
+        display: block; /* 버튼 클릭 시 보임 */
+    }
+    .sidebar-toggle {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        background: #eee;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .lesson-content {
+        padding: 1rem;
+    }
+    /* 기존 사이드바는 숨기고, 오프캔버스 메뉴로 재정의 */
+    /* .container > .sidebar { display: none; } */
+    .sidebar {
+        display: block;
+        position: fixed;
+        top: 0; left: 0;
+        width: 280px; height: 100%;
+        background-color: #fff;
+        z-index: 2000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        overflow-y: auto;
+    }
+    /* 메뉴가 열렸을 때의 스타일 */
+    body.menu-open .sidebar { transform: translateX(0); }
+    body.menu-open .menu-overlay {
+        display: block;
+        position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1999;
+    }
+}
+
+/* 검색창 스타일 */
+.search-container {
+    margin-bottom: 2rem;
+}
+#searchInput {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box; /* 패딩과 테두리를 너비에 포함 */
+}
+#searchInput:focus {
+    outline: none;
+    border-color: var(--link-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* 문서 정보 스타일 (날짜) */
+.article-meta {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 0.5rem;
+    text-align: right;
+}
+.article-meta span {
+    padding: 0 1rem;
+    font-size: 0.9em;
+}
+
+/* 맨 위로 가기 버튼 스타일 */
+#scrollToTopBtn {
+    display: none; /* 평소에는 숨김 */
+    position: fixed; /* 화면에 고정 */
+    bottom: 20px;
+    right: 30px;
+    z-index: 99; /* 다른 요소들 위에 보이도록 */
+    border: none;
+    outline: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 18px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+#scrollToTopBtn:hover {
+    opacity: 1; /* 마우스를 올리면 진하게 */
+}
+
+/* 공유, 인쇄 버튼 컨테이너 */
+.article-actions {
+    float: right; /* 요소를 오른쪽으로 보냄 */
+    margin-left: 1rem;
+}
+.article-actions button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+.article-actions button:hover {
+    background-color: #e0e0e0;
+}
+
+/* 👇 [매우 중요] 인쇄 전용 스타일 */
+@media print {
+    /* 인쇄 시 숨길 요소들 */
+    .main-nav,
+    .sidebar, 
+    .site-header, 
+    .sidebar-toggle,
+    .article-actions,
+    #scrollToTopBtn,
+    .video-container {
+        display: none;
+    }
+    /* 콘텐츠 영역을 꽉 채우도록 설정 */
+    .lesson-content {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    /* 페이지 나뉨 방지 (더 나은 인쇄 품질을 위해) */
+    article, pre, code {
+        page-break-inside: avoid;
+    }    
+    h2, h3 {
+        page-break-after: avoid;
+    }
+}
+
+/* 검색 결과 정보 스타일 */
+#searchResultsInfo {
+    margin: -1rem 0 1.5rem; /* 검색창과의 간격 조정 */
+    color: #555;
+    font-size: 0.9em;
+}
+
+/* 검색어 하이라이트 스타일 */
+.highlight {
+    background-color: #fff498; /* 노란색 배경 */
+    font-weight: bold;
+    color: #333;
+    border-radius: 3px;
+    padding: 0 2px;
+}
+
+/* 검색 결과 컨테이너 스타일 */
+.search-results-container {
+    display: none; /* 평소에는 숨김 */
+    margin-top: 1.5rem;
+    border-top: 2px solid #eee;
+}
+
+/* 검색 결과 각 항목 스타일 */
+.search-result-item {
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+}
+.search-result-item:hover {
+    background-color: #f9f9f9;
+}
+.search-result-item a {
+    text-decoration: none;
+    color: inherit;
+}
+.search-result-item h3 {
+    margin: 0 0 0.25rem;
+    color: var(--link-color); /* 제목 색상을 링크 색상으로 */
+}
+.search-result-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* --- 메인 내비게이션 메뉴 스타일 --- */
+
+/* 메뉴 바 전체 */
+.main-nav {
+    background-color: #333;
+    width: 100%;
+    position: relative; /* z-index를 적용하기 위한 필수 조건 */
+    z-index: 1000;      /* 메뉴 전체를 다른 콘텐츠보다 위로 올립니다. */
+}
+/* 메인 메뉴 리스트 (ul) */
+.main-nav > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* 메뉴 항목을 가로로 배치 */
+    justify-content: center; /* 메뉴를 가운데 정렬 */
+    font-size: 0.9em;
+}
+.main-nav > ul > li { position: relative; }
+/* 메인 메뉴 각 항목 (li a) */
+.main-nav > ul > li > a {
+    display: block;
+    color: #bbb;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.main-nav > ul > li > a:hover {
+    background-color: #444;
+}
+
+/* 서브 메뉴를 포함하는 항목 (li) */
+.main-nav .has-submenu {
+    position: relative; /* 서브메뉴 위치의 기준점 */
+}
+
+/* 2단계 메뉴 (submenu) - 평소에는 숨김 */
+.main-nav .submenu {
+    display: none;
+    position: absolute; /* 부모 요소를 기준으로 위치 지정 */
+    top: 100%; /* 부모 요소 바로 아래에 표시 */
+    left: 0;
+    background-color: white;
+    /* background-color: #444; */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 200px; /* 서브 메뉴의 최소 너비 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.main-nav li:hover > .submenu { display: block; }
+
+/* 3단계 메뉴 각 항목 (child-submenu) */
+.main-nav .submenu > li { position: relative; }
+.main-nav .child-submenu { 
+    display: none; position: absolute; top: 0; left: 100%; 
+    background-color: #fff;
+    /* background-color: #555;  */
+    list-style: none; padding: 0; margin: 0; min-width: 200px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+.main-nav .submenu > li:hover > .child-submenu { display: block; }
+
+.main-nav .submenu li a,
+.main-nav .child-submenu li a {
+    display: block;
+    color: #2d2d2d;
+    padding: 3px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-size: 0.9em;
+}
+
+.main-nav .submenu li a:hover {
+    background-color: #ddd;
+}
+
+/* 👇 [핵심] 마우스를 올리거나 active 클래스가 있을 때 서브 메뉴 표시 */
+.main-nav .has-submenu:hover > .submenu,
+.main-nav .has-submenu.active > .submenu {
+    display: block;
+}
+
+/* 표 */
+table {
+    width: 100%;
+    vertical-align: middle;
+    color: #000;
+    background-color: #fff;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+thead {
+    background-color: #f5f5f5; 
+    text-align: center;
+}
+th, td {border: 1px solid #ddd; padding: 1px 5px; }
+th {font-weight: normal; text-align: center;}
+
+/* --- 추가/보완된 스타일 --- */
+
+/* 강의 상세 페이지 레이아웃 보완 */
+.lesson-content {
+    min-height: 500px;
+    background: #fff;
+}
+
+/* 로딩/에러 메시지 */
+.spinner, .error {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    font-size: 1.2rem;
+}
+.error { color: #d9534f; }
+
+/* 콘텐츠 간 구분선 */
+.content-divider {
+    border: 0;
+    border-top: 1px dashed #ddd;
+    margin: 2rem 0;
+}
+
+/* 강의 상세 헤더 영역 */
+.article-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* 공유/인쇄 버튼 스타일 */
+.article-actions button {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.article-actions button:hover {
+    background: #f1f1f1;
+    color: #333;
+}
+
+/* 검색 결과 없음 메시지 */
+.no-result {
+    text-align: center;
+    padding: 2rem;
+    color: #999;
+}
+
+/* 모바일 메뉴 오버레이 (JS와 연동) */
+.menu-overlay {
+    display: none; /* JS로 제어 */
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+/* 마크다운 테이블 스타일 보완 */
+.a-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+.a-content th, .a-content td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.a-content th {
+    background-color: #f9f9f9;
+}
+.a-content blockquote {
+    border-left: 4px solid #eee;
+    padding-left: 1rem;
+    color: #666;
+    margin: 1rem 0;
+}
+
+/* 사이드바 자동 번호 매기기 스타일 */
+
+/* 1. 목록 컨테이너 (숫자 카운터 초기화) */
+.sidebar nav ol.chapter-list {
+    list-style: none;     /* 기본 숫자 제거 (커스텀 디자인을 위해) */
+    padding: 0;
+    margin: 0;
+    counter-reset: lesson-counter; /* 'lesson-counter'라는 이름의 카운터 시작 */
+}
+
+/* 2. 각 리스트 아이템 (숫자 증가) */
+.sidebar nav ol.chapter-list > li {
+    counter-increment: lesson-counter; /* 아이템마다 카운터 1씩 증가 */
+    position: relative; /* 내부 요소 정렬 기준 */
+}
+
+/* 3. 번호와 텍스트 디자인 */
+.sidebar nav ol.chapter-list > li > a {
+    display: flex;        /* 번호와 제목을 가로로 정렬 */
+    align-items: flex-start; /* 위쪽 라인 맞춤 */
+    padding: 0.4rem 0.5rem; 
+    text-decoration: none;
+    color: #555;
+    transition: all 0.2s;
+}
+
+/* 4. 번호 생성 (가상 요소 ::before 사용) */
+.sidebar nav ol.chapter-list > li > a::before {
+    content: counter(lesson-counter) ". "; /* 번호 뒤에 점(.) 추가 */
+    font-weight: bold;
+    color: #007bff;       
+    margin-right: 0.2rem; /* 번호와 제목 사이 간격 */
+    min-width: 1.2rem;    /* 번호 영역 최소 너비 확보 (정렬 유지) */
+}
+
+/* 5. 활성화된(현재 보고 있는) 메뉴 스타일 */
+.sidebar nav ol.chapter-list > li.active > a {
+    background-color: #f0f8ff;
+    color: #333;
+    font-weight: bold;
+}
