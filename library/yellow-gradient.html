@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노란우산공제 교육용 인포그램</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8fafc;
+    }
+
+    .yellow-gradient {
+      background: linear-gradient(135deg, #FFD700 0%, #FFB300 100%);
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
+</head>
+
+<body class="antialiased text-slate-800 pb-12">
+
+  <!-- Header Section -->
+  <header
+    class="yellow-gradient text-white pt-16 pb-24 px-4 text-center rounded-b-[3rem] shadow-md relative overflow-hidden">
+    <!-- Abstract shapes for decoration -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20">
+      <svg class="absolute -top-10 -left-10 w-64 h-64 text-white" fill="currentColor" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50" />
+      </svg>
+      <svg class="absolute top-20 right-10 w-32 h-32 text-white" fill="currentColor" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50" />
+      </svg>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <div class="inline-flex items-center justify-center p-3 bg-white/20 rounded-full mb-4 backdrop-blur-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+        </svg>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black mb-4 tracking-tight text-slate-900">노란우산공제 소득공제 가이드</h1>
+      <p class="text-lg md:text-xl font-medium text-slate-800 opacity-90 max-w-2xl mx-auto">
+        가입 시기별 <span class="font-bold underline decoration-4 underline-offset-4 decoration-white">공제 대상 소득</span>과 <span
+          class="font-bold underline decoration-4 underline-offset-4 decoration-white">구간별 한도액</span> 안내 (2025년 개정 반영)
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 -mt-12 relative z-20">
+
+    <!-- Section 1: Subscription Date Timeline -->
+    <div class="mb-16">
+      <div class="flex items-center justify-center mb-8">
+        <span class="bg-slate-800 text-white text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider">Step
+          1</span>
+        <h2 class="text-2xl font-bold ml-3 text-slate-800">가입 시기별 공제 대상 소득 기준</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- 2015 Before -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-slate-300 card-hover relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-slate-100 text-slate-500 text-xs font-bold px-3 py-1 rounded-bl-lg">
+            ~2015.12.31</div>
+          <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-600" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-slate-800">2015년 이전 가입</h3>
+          <div class="bg-slate-50 p-4 rounded-xl mb-4 h-24 flex items-center justify-center text-center">
+            <p class="text-lg font-bold text-slate-700">종합소득금액<br><span class="text-sm font-normal text-slate-500">(근로소득
+                등 포함 전체)</span></p>
+          </div>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li class="flex items-start">
+              <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>가입 직위에 따라 공제받되, 미신청 시 <strong>종합소득</strong> 기준 적용</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>법인대표자 총급여액과 무관하게 소득공제 가능 (종전 규정)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 2016-2018 -->
+        <div
+          class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-yellow-400 card-hover relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-bl-lg">
+            2016.1.1~2018.12.31</div>
+          <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-slate-800">2016년 이후 가입</h3>
+          <div class="bg-yellow-50 p-4 rounded-xl mb-4 h-24 flex items-center justify-center text-center">
+            <p class="text-lg font-bold text-yellow-800">사업소득금액<br><span
+                class="text-sm font-normal text-yellow-600">(법인대표는 근로소득금액)</span></p>
+          </div>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li class="flex items-start">
+              <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>개인사업자: 사업소득 기준 공제</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>법인대표자: 총급여 <strong>8천만 원 이하</strong>인 경우에만 근로소득에서 공제 (25년 개정)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 2019 After -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-blue-500 card-hover relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-bl-lg">
+            2019.1.1~현재</div>
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-slate-800">2019년 이후 가입</h3>
+          <div class="bg-blue-50 p-4 rounded-xl mb-4 h-24 flex items-center justify-center text-center">
+            <p class="text-lg font-bold text-blue-800">사업소득금액 <br><span class="text-sm font-bold text-red-500">-
+                부동산임대소득금액 제외</span></p>
+          </div>
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li class="flex items-start">
+              <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>사업소득에서 <strong>부동산 임대업 소득</strong>을 제외한 비율만큼만 공제</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>공제 한도 역시 부동산임대소득을 차감한 금액을 한도로 함</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 2025 Revised Limits -->
+    <div class="mb-10">
+      <div class="flex items-center justify-center mb-8">
+        <span
+          class="bg-yellow-500 text-white text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-sm">Step
+          2</span>
+        <h2 class="text-2xl font-bold ml-3 text-slate-800">2025년 기준 소득구간별 공제 한도액</h2>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+        <div class="bg-slate-800 p-4 text-center">
+          <p class="text-slate-200 text-sm">※ 가입 시기와 무관하게 2025.1.1. 이후 납부하는 공제부금부터 모두 적용됩니다.</p>
+        </div>
+
+        <div class="p-6 md:p-10">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+            <!-- Bracket 1 -->
+            <div
+              class="relative bg-gradient-to-b from-green-50 to-white border border-green-100 rounded-2xl p-6 text-center shadow-sm card-hover">
+              <div
+                class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                최대 한도
+              </div>
+              <h4 class="text-green-800 font-bold mb-4 mt-2">4천만 원 이하</h4>
+              <div class="text-3xl font-black text-slate-800 mb-2">600<span class="text-lg font-normal text-slate-500">
+                  만원</span></div>
+            </div>
+
+            <!-- Bracket 2 -->
+            <div
+              class="relative bg-gradient-to-b from-blue-50 to-white border border-blue-100 rounded-2xl p-6 text-center shadow-sm card-hover">
+              <h4 class="text-blue-800 font-bold mb-4 mt-2">4천만 원 초과<br>~ 6천만 원 이하</h4>
+              <div class="text-3xl font-black text-slate-800 mb-2">500<span class="text-lg font-normal text-slate-500">
+                  만원</span></div>
+            </div>
+
+            <!-- Bracket 3 -->
+            <div
+              class="relative bg-gradient-to-b from-yellow-50 to-white border border-yellow-100 rounded-2xl p-6 text-center shadow-sm card-hover">
+              <h4 class="text-yellow-800 font-bold mb-4 mt-2">6천만 원 초과<br>~ 1억 원 이하</h4>
+              <div class="text-3xl font-black text-slate-800 mb-2">400<span class="text-lg font-normal text-slate-500">
+                  만원</span></div>
+            </div>
+
+            <!-- Bracket 4 -->
+            <div
+              class="relative bg-gradient-to-b from-slate-50 to-white border border-slate-200 rounded-2xl p-6 text-center shadow-sm card-hover">
+              <h4 class="text-slate-600 font-bold mb-4 mt-2">1억 원 초과</h4>
+              <div class="text-3xl font-black text-slate-800 mb-2">200<span class="text-lg font-normal text-slate-500">
+                  만원</span></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info/Alert Box -->
+    <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-2xl shadow-sm">
+      <div class="flex items-start">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+        <div>
+          <h4 class="text-lg font-bold text-red-800 mb-1">💡 주요 세법 개정 주의사항 (2025.1.1 적용)</h4>
+          <p class="text-slate-700 text-sm leading-relaxed mb-2">
+            과거 가입자(2015년 이전 등)라 할지라도, <strong>2025년 1월 1일 이후 납부하는 공제부금</strong>에 대해서는 종전 한도(예: 300만 원)가 아닌 <strong>위 표의
+              개정된 4구간 한도액(600/500/400/200만 원)이 전면 적용</strong>됩니다.
+          </p>
+          <p class="text-slate-700 text-sm leading-relaxed">
+            또한, 법인대표자의 공제 기준이 되는 총급여액 기준이 기존 7천만 원 이하에서 <strong>8천만 원 이하</strong>로 상향되었습니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 text-center text-slate-400 text-sm px-4">
+    <p>본 인포그램은 조세특례제한법 제86조의3 및 관련 부칙을 바탕으로 작성된 교육/참고용 자료입니다.</p>
+    <p class="mt-1">자세한 사항은 국세청 상담센터 또는 세무대리인과 상의하시기 바랍니다.</p>
+  </footer>
+
+</body>
+
+</html>

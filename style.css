@@ -3,12 +3,27 @@
 /* 기본 & 공통 스타일 */
 :root {
     --main-color: #333;
-    --secondary-color: #555;
+    --secondary-color: #5a6c80;
     --link-color: #007bff;
-    --bg-color: #fff;
-    --border-color: #ddd;
-    --light-bg-color: #f9f9f9;
+    --bg-color: #f7faff;
+    --border-color: #e5e7eb;
+    --light-bg-color: #e6f0fa;
+    --ink: #06377B;
+    --ink-2: #0a4691;
+    --cream: #e6f0fa;
+    --cream-2: #cee0f0;
+    --paper: #f7faff;
+    --gold: #0092D7;
+    --gold-2: #0077b3;
+    --rust: #1e3a6e;
+    --line: #1a4a96;
+    --muted: #5a6c80;
+    --danger: #b54545;
 }
+
+h1, h2, h3, h4, h5, h6 {color: #06377B;}
+
+ul, ol {margin: 0; padding: 0;} 
 
 body {
     font-family: NanumGothic,-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -102,7 +117,7 @@ img {
     top: 0;
     overflow-y: auto;
 }
-.sidebar nav ul, ol {
+.sidebar nav ul, .sidebar nav ol {
     font-size: 14px;
     list-style: none;
     padding: 0;
@@ -353,12 +368,24 @@ pre {
     font-size: 0.9em;
     color: #666;
 }
+/* 검색 결과의 소속 코스명 배지 */
+.search-result-item .result-course {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 1px 8px;
+    font-size: 0.7em;
+    font-weight: normal;
+    color: var(--secondary-color);
+    background-color: var(--light-bg-color);
+    border-radius: 10px;
+    vertical-align: middle;
+}
 
 /* --- 메인 내비게이션 메뉴 스타일 --- */
 
 /* 메뉴 바 전체 */
 .main-nav {
-    background-color: #333;
+    background-color: #06377B;
     width: 100%;
     position: relative; /* z-index를 적용하기 위한 필수 조건 */
     z-index: 1000;      /* 메뉴 전체를 다른 콘텐츠보다 위로 올립니다. */
@@ -460,6 +487,17 @@ th {font-weight: normal; text-align: center;}
     background: #fff;
 }
 
+/* 누락된 콘텐츠 파일 안내 */
+.content-missing {
+    padding: 0.8rem 1rem;
+    margin: 1rem 0;
+    border: 1px dashed #f0c36d;
+    border-radius: 6px;
+    background-color: #fffbeb;
+    color: #8a6d3b;
+    font-size: 0.9em;
+}
+
 /* 로딩/에러 메시지 */
 .spinner, .error {
     text-align: center;
@@ -542,6 +580,65 @@ th {font-weight: normal; text-align: center;}
     margin: 1rem 0;
 }
 
+/* --- 콜아웃(Callout) 스타일 --- */
+/* 마크다운의 "> [!NOTE]" 문법이 script.js에서 .callout 박스로 변환됨 */
+.callout {
+    --callout-accent: #0b6bcb;
+    --callout-bg: #eff6ff;
+    --callout-border: #bfdbfe;
+    margin: 1.2rem 0;
+    border: 1px solid var(--callout-border);
+    border-left: 4px solid var(--callout-accent);
+    border-radius: 6px;
+    background-color: var(--callout-bg);
+    overflow: hidden;
+    break-inside: avoid; /* 인쇄 시 박스가 페이지에 걸쳐 잘리지 않도록 */
+}
+.callout-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    font-weight: bold;
+    color: var(--callout-accent);
+}
+.callout-title .bi {
+    font-size: 1.1em;
+    line-height: 1;
+}
+.callout-content {
+    padding: 0 1rem 0.8rem;
+}
+.callout-content > :first-child { margin-top: 0; }
+.callout-content > :last-child { margin-bottom: 0; }
+/* 콜아웃 안의 표는 흰 배경 유지 */
+.callout-content table { background-color: #fff; }
+
+/* 접을 수 있는 콜아웃 (details/summary) */
+details.callout > summary.callout-title {
+    cursor: pointer;
+    list-style: none; /* 기본 삼각형 마커 제거 */
+    user-select: none;
+}
+details.callout > summary.callout-title::-webkit-details-marker { display: none; }
+details.callout > summary.callout-title::after {
+    content: '▸';
+    margin-left: auto;
+    transition: transform 0.2s ease;
+}
+details.callout[open] > summary.callout-title::after {
+    transform: rotate(90deg);
+}
+
+/* 타입별 색상 테마 */
+.callout-blue   { --callout-accent: #0b6bcb; --callout-bg: #eff6ff; --callout-border: #bfdbfe; }
+.callout-cyan   { --callout-accent: #0e7490; --callout-bg: #ecfeff; --callout-border: #a5f3fc; }
+.callout-green  { --callout-accent: #15803d; --callout-bg: #f0fdf4; --callout-border: #bbf7d0; }
+.callout-orange { --callout-accent: #b45309; --callout-bg: #fffbeb; --callout-border: #fde68a; }
+.callout-red    { --callout-accent: #b91c1c; --callout-bg: #fef2f2; --callout-border: #fecaca; }
+.callout-purple { --callout-accent: #6d28d9; --callout-bg: #f5f3ff; --callout-border: #ddd6fe; }
+.callout-gray   { --callout-accent: #4b5563; --callout-bg: #f9fafb; --callout-border: #e5e7eb; }
+
 /* 사이드바 자동 번호 매기기 스타일 */
 
 /* 1. 목록 컨테이너 (숫자 카운터 초기화) */
@@ -560,7 +657,7 @@ th {font-weight: normal; text-align: center;}
 
 /* 3. 번호와 텍스트 디자인 */
 .sidebar nav ol.chapter-list > li > a {
-    display: flex;        /* 번호와 제목을 가로로 정렬 */
+    display: flex; /* 번호와 제목을 가로로 정렬 */
     align-items: flex-start; /* 위쪽 라인 맞춤 */
     padding: 0.4rem 0.5rem; 
     text-decoration: none;

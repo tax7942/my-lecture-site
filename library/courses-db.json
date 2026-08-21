@@ -1,0 +1,459 @@
+{
+	"company": {
+		"categoryTitle": "기업세무",
+		"subCategories": {
+			"taxReduction": {
+				"subCategoryTitle": "조세감면",
+				"courses": {
+					"taxReliefExclusion" : {
+						"courseTitle": "조세감면배제",
+						"lessons":[
+							{
+								"id": 5001,
+								"title": "조세감면배제",
+								"lastModifiedDate": "2026-02-21",
+								"contentPaths":[
+									"library/조세감면배제.md"
+								]
+							}
+						]
+					}
+				}
+			},
+			"corporateTax": {
+				"subCategoryTitle": "법인세",
+				"courses": {
+					"corporateBasic": {
+						"courseTitle": "법인세 기초",
+						"lessons": [
+							{
+								"id": 1,
+								"title": "수업 소개",
+								"videoId": "u9_tVL2hC7s",
+								"lastModifiedDate": "2025-08-12",
+								"contentPaths": [
+									"library/content-1.md",
+									"library/content-4.md",
+									"library/desc-2.txt"
+								],
+								"code": ""
+							},
+							{
+								"id": 2,
+								"title": "기본 문법",
+								"videoId": "OCGA-b-zD0c",
+								"lastModifiedDate": "2025-08-13",
+								"contentPaths": [
+									"library/html/syntax.txt"
+								],
+								"code": ""
+							},
+							{
+								"id": 3,
+								"title": "태그란 무엇인가?",
+								"videoId": "T__8u2I2_C0",
+								"lastModifiedDate": "2025-08-14",
+								"contentPaths": [
+									"library/desc-3.txt"
+								],
+								"code": "<h1>가장 중요한 제목</h1>\n<h2>부제목</h2>\n<p>이것은 문단입니다.</p>\n<strong>이 텍스트는 중요합니다.</strong>"
+							}							
+						]
+					},
+					"advancedCoporate": {
+						"courseTitle": "법인세 심화",
+						"lessons": [
+							{
+								"id": 101,
+								"title": "법인세 조정 시작하기",
+								"videoId": "O4t33gE2H64",
+								"lastModifiedDate": "2025-08-14",
+								"contentPaths": [
+									"library/css/intro.md",
+									"library/desc-3.txt"
+								],
+								"code": ""
+							},
+							{
+								"id": 102,
+								"title": "세무조정이란?",
+								"videoId": "Q4p8v2x6Ktk",
+								"lastModifiedDate": "2025-08-15",
+								"contentPaths": [
+									"library/css/selectors.md"
+								],
+								"code": ""
+							}
+						]
+					}
+				}
+			},
+			"backend": {
+				"subCategoryTitle": "자본거래",
+				"courses": {
+					"nonAggregatedGift": {
+						"courseTitle": "합산배제증여재산",
+						"lessons": [
+							{
+								"id": 5101,
+								"title": "합산배제증여재산",
+								"lastModifiedDate": "2026-05-19",
+								"contentPaths": [
+									"library/합산배제증여재산.md"
+								],
+								"code": ""
+							}
+						]
+					}
+				}
+			},
+			"vat": {
+				"subCategoryTitle": "부가가치세",
+				"courses": {
+					"vat-start": {
+						"courseTitle": "VAT 기초",
+						"lessons": []
+					}
+				}
+			}
+		},
+		"courses": {
+			"web-start": {
+				"courseTitle": "비영리법인 시작하기",
+				"lessons": [
+					{
+						"id": 401,
+						"title": "공익법인이란 무엇인가?",
+						"contentPaths": [
+							"library/content-4.md"
+						]
+					}
+				]
+			},
+			"browser": {
+				"courseTitle": "세무조사의 작동 원리 (준비중)",
+				"lessons": []
+			}
+		}
+	},
+	"individual": {
+		"categoryTitle": "개인세무",
+		"subCategories": {
+			"incomeTax": {
+				"subCategoryTitle": "소득세",
+				"courses": {
+					"incomeTax-theory": {
+						"courseTitle": "소득세 이론",
+						"lessons": [
+							{
+								"id": 2011,
+								"title": "소득세의 의의",
+								"videoId": "",
+								"createdDate": "2025-08-28",
+								"lastModifiedDate": "2025-08-28",
+								"contentPaths": [
+									"library/1-1 소득세의 의의.md"
+								]
+							},
+							{
+								"id": 2012,
+								"title": "납세의무",
+								"createdDate": "2025-08-30",
+								"lastModifiedDate": "2025-08-30",
+								"contentPaths": [
+									"library/1-2 납세의무.md"
+								]
+							},
+							{
+								"id": 2013,
+								"title": "과세기간",
+								"createdDate": "2025-09-01",
+								"contentPaths": [
+									"library/1-3 과세기간.md"
+								]
+							},
+							{
+								"id": 2014,
+								"title": "납세지",
+								"createdDate": "2025-09-01",
+								"contentPaths": [
+									"library/1-4 납세지.md"
+								]
+							},
+							{
+								"id": 2015,
+								"title": "연습문제",
+								"contentPaths": [
+									"..."
+								]
+							}
+						]
+					},
+					"incometax-control": {
+						"courseTitle": "금융소득",
+						"lessons": [
+							{
+								"id": 2021,
+								"title": "이자소득",
+								"contentPaths": [
+									"library/2-1 이자소득.md"
+								]
+							},
+							{
+								"id": 2022,
+								"title": "이자소득금액의 계산",
+								"contentPaths": [
+									"library/2-2 이자소득금액의 계산.md"
+								]
+							},
+							{
+								"id": 2023,
+								"title": "이자소득의 수입시기",
+								"contentPaths": [
+									"library/2-3 이자소득의 수입시기.md"
+								]
+							},
+							{
+								"id": 2024,
+								"title": "배당소득",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2025,
+								"title": "배당소득금액의 계산",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2026,
+								"title": "배당소득의 수입시기",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2027,
+								"title": "금융소득의 과세방법",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2028,
+								"title": "연습문제",
+								"contentPaths": [
+									"..."
+								]
+							}
+						]
+					},
+					"사업소득": {
+						"courseTitle": "사업소득",
+						"lessons": [
+							{
+								"id": 2011,
+								"title": "사업소득의 범위",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2012,
+								"title": "비과세 사업소득",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2013,
+								"title": "사업소득금액의 계산",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2014,
+								"title": "부동산임대업의 총수입금액",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2011,
+								"title": "사업소득의 수입시기",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2012,
+								"title": "사업소득의 과세방법",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2013,
+								"title": "법인소득과 개인소득의 비교",
+								"contentPaths": [
+									"..."
+								]
+							},
+							{
+								"id": 2015,
+								"title": "연습문제",
+								"contentPaths": [
+									"..."
+								]
+							}
+						]
+					}
+				}
+			},
+			"incomeTaxFiling": {
+				"subCategoryTitle": "종합소득세 신고",
+				"courses": {
+					"yellowGradient": {
+						"courseTitle": "노란우산공제",
+						"lessons": [
+							{
+								"id": 2431,
+								"title": "연혁 및 소득공제 가이드",
+								"lastModifiedDate": "2026-05-11",
+								"contentPaths": [
+									"library/노란우산공제.md"
+								]
+							},
+							{
+								"id": 243102,
+								"title": "노란우산공제 사례",
+								"lastModifiedDate": "2026-05-11",
+								"contentPaths": [
+									"library/노란우산공제사례.md"
+								]
+							}							
+						]
+					},
+					"irp": {
+						"courseTitle": "연금계좌세액공제",
+						"lessons":[
+							{
+								"id": 2811,
+								"title": "연금계좌세액공제",
+								"lastModifiedDate": "2026-05-18",
+								"contentPaths": [
+									"library/연금계좌세액공제.md"
+								]
+							}
+						]
+					}
+				}
+			}
+		},
+		"courses": {
+			"web-start": {
+				"courseTitle": "연말정산",
+				"lessons": [
+					{
+						"id": 401,
+						"title": "연말정산이란 무엇인가?",
+						"contentPaths": [
+							"library/content-4.md"
+						]
+					},
+					{
+						"id": 2811,
+						"title": "연금계좌세액공제",
+						"lastModifiedDate": "2026-05-18",
+						"contentPaths": [
+							"library/연금계좌세액공제.md"
+						]
+					}
+				]
+			},
+			"browser": {
+				"courseTitle": "인적용역 - 3.3%",
+				"lessons": [
+					{
+						"id": 9401,
+						"title": "인적용역사업자의 감가상각 등",
+						"lastModifiedDate": "2026-05-20",
+						"contentPaths": [
+							"library/인적용역사업자의 감가상각 등.md"
+						]
+					}
+				]
+			}
+		}
+	},
+	"taxAgent": {
+		"categoryTitle": "세무대리인",
+		"courses": {
+			"amendedtax": {
+				"courseTitle": "개정세법",
+				"lessons": [
+					{
+						"id": 502,
+						"title": "2026 세제개편안 마스터 가이드",
+						"createdDate": "2026-08-11",
+						"videoId": "",
+						"contentPaths": [
+							"library/content-502.md"
+						]
+					},
+					{
+						"id": 501,
+						"title": "2025 세법개정안 핵심내용",
+						"createdDate": "2025-09-15",
+						"videoId": "",
+						"contentPaths": [
+							"library/desc-501.txt",
+							"library/content-501.md"
+						]
+					}
+				]
+			}
+		}
+	},
+	"realEstate": {
+		"categoryTitle": "부동산",
+		"courses": {
+			"sql": {
+				"courseTitle": "매매계약의 기본 ",
+				"lessons": [
+					{
+						"id": 401,
+						"title": "부동산의 매매계약이 해제 된 경우 취득세를 내야 하는지에 대한 판례",
+						"videoId": "",
+						"lastModifiedDate": "",
+						"contentPaths": [
+							"library/401.md"
+						],
+						"code": ""
+					}
+				]
+			}
+		}
+	},
+	"database": {
+		"categoryTitle": "자료정리",
+		"courses": {
+			"sql": {
+				"courseTitle": "자료정리 기초",
+				"lessons": [
+					{
+						"id": 301,
+						"title": "사이트 자료정리",
+						"lastModifiedDate": "2026-05-11",
+						"contentPaths": [
+							"library/세무학습사이트 자료정리.md"
+						]
+					}
+				]
+			}
+		}
+	}
+}
