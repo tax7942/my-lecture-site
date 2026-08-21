@@ -376,6 +376,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 			// 콜아웃 변환 (> [!NOTE] 문법)
 			enhanceCallouts(viewer.querySelector('.a-content'));
 
+			// 표를 가로 스크롤 컨테이너로 감싸기 (모바일에서 열이 눌리지 않도록)
+			wrapTables(viewer.querySelector('.a-content'));
+
 			// 버튼 이벤트 연결
 			document.getElementById('shareBtn')?.addEventListener('click', () => {
 				const url = window.location.href;
@@ -478,6 +481,20 @@ document.addEventListener('DOMContentLoaded', async function () {
 		});
 	}
 
+	// 표를 .table-wrap으로 감싸고, 열이 3개 이상이면 모바일에서 최소 너비를 확보해 가로 스크롤
+	function wrapTables(root) {
+		if (!root) return;
+		root.querySelectorAll('table').forEach(table => {
+			if (table.parentElement.classList.contains('table-wrap')) return;
+			const wrap = document.createElement('div');
+			wrap.className = 'table-wrap';
+			const colCount = table.querySelector('tr')?.children.length || 0;
+			if (colCount >= 3) table.classList.add('table-wide');
+			table.replaceWith(wrap);
+			wrap.appendChild(table);
+		});
+	}
+
 	// ==========================================
 	// 5. 공통 UI 유틸리티
 	// ==========================================
@@ -491,7 +508,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 		// CSS가 body.menu-open 기준으로 사이드바 이동/오버레이 표시를 처리함
 		if (toggleBtn && sidebar) {
 			toggleBtn.addEventListener('click', () => {
-				document.body.classList.toggle('menu-open');
+				const isOpen = document.body.classList.toggle('menu-open');
+				if (isOpen) document.body.classList.remove('nav-open'); // 메인 메뉴와 동시에 열리지 않도록
 			});
 		}
 		if (overlay) {
@@ -503,8 +521,40 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 	// 모바일/데스크탑 메뉴 호버/클릭 처리
 	function setupSubmenuEvents() {
-		// 모바일에서 터치 시 서브메뉴 열리게 처리하려면 추가 로직 필요
-		// 현재는 CSS hover로 처리됨
+		const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+		// 햄버거 버튼: 모바일에서 메인 메뉴 펼치기/접기
+		const navToggle = document.getElementById('navToggle');
+		if (navToggle && !navToggle.dataset.bound) {
+			navToggle.dataset.bound = 'true';
+			navToggle.addEventListener('click', () => {
+				const isOpen = document.body.classList.toggle('nav-open');
+				navToggle.setAttribute('aria-expanded', String(isOpen));
+				navToggle.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+				if (isOpen) document.body.classList.remove('menu-open'); // 목차와 동시에 열리지 않도록
+			});
+		}
+
+		// 모바일: 서브메뉴가 있는 항목은 탭으로 열고 닫음 (데스크탑은 CSS hover 유지)
+		document.querySelectorAll('#mainMenu .has-submenu > a').forEach(anchor => {
+			anchor.addEventListener('click', (e) => {
+				if (!mobileQuery.matches) return;
+				e.preventDefault();
+				const li = anchor.parentElement;
+				const wasOpen = li.classList.contains('open');
+				// 같은 단계의 다른 메뉴는 닫기 (아코디언)
+				Array.from(li.parentElement.children).forEach(sibling => sibling.classList.remove('open'));
+				if (!wasOpen) li.classList.add('open');
+			});
+		});
+
+		// 데스크탑 폭으로 돌아가면 모바일 메뉴 상태 초기화
+		mobileQuery.addEventListener('change', (e) => {
+			if (!e.matches) {
+				document.body.classList.remove('nav-open');
+				document.querySelectorAll('#mainMenu .open').forEach(li => li.classList.remove('open'));
+			}
+		});
 	}
 
 	// 맨 위로 가기 버튼

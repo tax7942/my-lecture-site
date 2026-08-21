@@ -303,6 +303,8 @@ pre {
     .sidebar, 
     .site-header, 
     .sidebar-toggle,
+    .nav-toggle,
+    .menu-overlay,
     .article-actions,
     #scrollToTopBtn,
     .video-container {
@@ -679,4 +681,117 @@ details.callout[open] > summary.callout-title::after {
     background-color: #f0f8ff;
     color: #333;
     font-weight: bold;
+}
+/* ==========================================
+   표 가로 스크롤 컨테이너 (script.js wrapTables)
+   ========================================== */
+.table-wrap {
+    overflow-x: auto;
+    margin: 1rem 0;
+    -webkit-overflow-scrolling: touch;
+}
+.table-wrap > table { margin: 0; }
+
+/* 햄버거(메인 메뉴) 버튼 - 데스크탑에서는 숨김 */
+.nav-toggle { display: none; }
+.main-nav > ul > li > a { white-space: nowrap; }
+
+/* ==========================================
+   모바일 대응 (메뉴 / 헤더 / 본문)
+   기존 hover 규칙보다 뒤에 위치해야 하므로 파일 끝에 둠
+   ========================================== */
+@media (max-width: 768px) {
+    /* --- 헤더: 좌우 버튼 자리 확보, 제목 축소 --- */
+    .site-header {
+        padding: 0.75rem 4.75rem; /* 좌(햄버거)/우(목차) 버튼 자리 */
+        min-height: 3rem;
+    }
+    .site-header h1 {
+        font-size: 1.1rem;
+        margin: 0.2rem 0;
+        line-height: 1.4;
+    }
+    .site-header p {
+        font-size: 0.8rem;
+        margin: 0;
+        color: var(--secondary-color);
+    }
+    .nav-toggle,
+    .sidebar-toggle {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0.4rem 0.7rem;
+        font-size: 1rem;
+        line-height: 1;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        cursor: pointer;
+        color: var(--ink);
+    }
+    .nav-toggle { display: block; left: 0.75rem; font-size: 1.4rem; }
+    .sidebar-toggle { right: 0.75rem; font-size: 0.85rem; }
+
+    /* --- 메인 메뉴: 평소 접힘, 햄버거로 세로 펼침 --- */
+    .main-nav > ul {
+        display: none;
+        flex-direction: column;
+        font-size: 1em;
+    }
+    body.nav-open .main-nav > ul { display: flex; }
+
+    .main-nav > ul > li > a {
+        padding: 12px 1.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: #e6eef8;
+        white-space: normal;
+    }
+    .main-nav > ul > li > a .bi {
+        float: right;
+        margin-top: 0.5em;
+        transition: transform 0.2s;
+    }
+    .main-nav .has-submenu.open > a .bi { transform: rotate(180deg); }
+
+    /* 서브메뉴: 드롭다운 대신 안쪽에 펼쳐지는 아코디언 */
+    .main-nav .submenu,
+    .main-nav .child-submenu {
+        position: static;
+        min-width: 0;
+        box-shadow: none;
+        background-color: #f3f7fc;
+    }
+    .main-nav .child-submenu { background-color: #e9f0f8; }
+
+    /* hover로는 열리지 않고 탭(.open)으로만 열림 */
+    .main-nav .has-submenu > .submenu,
+    .main-nav .has-submenu:hover > .submenu,
+    .main-nav .submenu > li > .child-submenu,
+    .main-nav .submenu > li:hover > .child-submenu { display: none; }
+    .main-nav .has-submenu.open > .submenu,
+    .main-nav .submenu > li.open > .child-submenu { display: block; }
+
+    .main-nav .submenu li a,
+    .main-nav .child-submenu li a {
+        padding: 10px 1.25rem 10px 2rem;
+        font-size: 0.95em;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .main-nav .child-submenu li a { padding-left: 3rem; }
+    .main-nav .submenu > li.has-submenu > a .bi {
+        float: right;
+        margin-top: 0.5em;
+        transition: transform 0.2s;
+    }
+    .main-nav .submenu > li.has-submenu.open > a .bi { transform: rotate(90deg); }
+
+    /* --- 본문 여백 --- */
+    .main-content { padding: 0 1rem; margin-top: 1.25rem; }
+    .course-grid { gap: 1rem; }
+
+    /* --- 강의 본문: 넓은 표는 가로 스크롤 --- */
+    .a-content table.table-wide { min-width: 600px; }
+    .article-meta { flex-wrap: wrap; gap: 0.5rem; }
+    .article-meta span { padding: 0; }
 }
